@@ -7,6 +7,29 @@ app_description = "Summary of sales invoices to send to customer in batch"
 app_email = "kittiu@ecosoft.co.th"
 app_license = "MIT"
 
+fixtures = [
+    {
+		"dt": "Custom Field",
+		"filters": [("name", "in", [
+			"Payment Entry-sales_billing",
+            "Payment Entry-section_break_44",
+            "Payment Entry-column_break_42",
+            "Payment Entry-get_invoices_from_sales_billing",
+		])],
+	},
+    {
+		"dt": "DocType Link",
+		"filters": [["link_doctype", "in", ["Sales Billing"]]],
+	},
+	{
+		"dt": "Property Setter",
+		"filters": [["name", "in", [
+			"Withholding Tax Cert-main-default_print_format",
+			"Account-account_type-options",
+		]]],
+	},
+]
+
 # Includes in <head>
 # ------------------
 
