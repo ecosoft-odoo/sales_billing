@@ -30,6 +30,10 @@ app_license = "MIT"
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+	"Sales Billing" : "public/js/sales_billing.js",
+	"Payment Entry" : "public/js/payment_entry.js",
+}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -109,6 +113,17 @@ app_license = "MIT"
 #		"on_trash": "method"
 #	}
 # }
+
+doc_events = {
+    "Payment Entry": {
+        "on_submit": [
+            "sales_billing.sales_billing.doctype.sales_billing.sales_billing.update_sales_billing_outstanding_amount",
+        ],
+        "on_cancel":[
+            "sales_billing.sales_billing.doctype.sales_billing.sales_billing.update_sales_billing_outstanding_amount",
+        ],
+    }
+}
 
 # Scheduled Tasks
 # ---------------
