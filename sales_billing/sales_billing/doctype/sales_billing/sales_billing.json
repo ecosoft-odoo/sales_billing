@@ -9,6 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "customer",
+  "customer_name",
   "date",
   "naming_series",
   "column_break_1",
@@ -140,12 +141,19 @@
   {
    "fieldname": "column_break_15",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-09 16:50:35.014647",
+ "modified": "2023-01-31 10:39:06.967979",
  "modified_by": "Administrator",
  "module": "Sales Billing",
  "name": "Sales Billing",
