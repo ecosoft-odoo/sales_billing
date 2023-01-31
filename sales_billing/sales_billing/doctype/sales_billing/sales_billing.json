@@ -10,15 +10,18 @@
  "field_order": [
   "customer",
   "customer_name",
-  "date",
   "naming_series",
   "column_break_1",
+  "company",
+  "date",
+  "invoice_count",
+  "filters_section",
+  "currency",
+  "tax_type",
+  "column_break_10",
   "threshold_type",
   "threshold_date",
-  "column_break_2",
-  "company",
-  "currency",
-  "invoice_count",
+  "get_sales_invoices",
   "section_break_9",
   "sales_billing_line",
   "section_break_13",
@@ -51,6 +54,7 @@
    "label": "Date"
   },
   {
+   "description": "Selecting treshold date will get matched invoices",
    "fieldname": "threshold_date",
    "fieldtype": "Date",
    "label": "Threshold Date",
@@ -89,10 +93,6 @@
    "fieldtype": "Table",
    "label": "Sales Invoices",
    "options": "Sales Billing Line"
-  },
-  {
-   "fieldname": "column_break_2",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "section_break_9",
@@ -148,12 +148,34 @@
    "fieldtype": "Data",
    "label": "Customer Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "filters_section",
+   "fieldtype": "Section Break",
+   "label": "Filters"
+  },
+  {
+   "description": "Filter by tax type or leave blank for all types",
+   "fieldname": "tax_type",
+   "fieldtype": "Link",
+   "label": "Tax Type",
+   "options": "Sales Taxes and Charges Template"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.docstatus==0",
+   "fieldname": "get_sales_invoices",
+   "fieldtype": "Button",
+   "label": "Get Sales Invoices"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-31 10:39:06.967979",
+ "modified": "2023-01-31 14:00:03.205886",
  "modified_by": "Administrator",
  "module": "Sales Billing",
  "name": "Sales Billing",

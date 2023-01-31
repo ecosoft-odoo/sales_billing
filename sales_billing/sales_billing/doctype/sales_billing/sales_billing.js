@@ -19,13 +19,14 @@ frappe.ui.form.on("Sales Billing", {
 		frm.get_field("sales_billing_line").grid.set_multiple_add("sales_invoice");
 	},
 
-	threshold_date(frm) {
+	get_sales_invoices(frm) {
         if (frm.doc.threshold_date) {
             return frm.call({
                 method: "sales_billing.sales_billing.doctype.sales_billing.sales_billing.get_due_billing",
                 args: {
                     customer: frm.doc.customer,
                     currency: frm.doc.currency,
+					tax_type: frm.doc.tax_type,
                     threshold_type: frm.doc.threshold_type,
                     threshold_date: frm.doc.threshold_date
                 },

@@ -18,8 +18,8 @@ class SalesBilling(Document):
 
 
 @frappe.whitelist()
-def get_due_billing(customer=None, currency=None, threshold_type=None, threshold_date=None):
-	if not (customer, currency, threshold_type and threshold_date):
+def get_due_billing(customer=None, currency=None, tax_type=None, threshold_type=None, threshold_date=None):
+	if not (customer, currency, tax_type, threshold_date):
 		return {}
 	filters = {
 		"customer": customer,
@@ -27,6 +27,8 @@ def get_due_billing(customer=None, currency=None, threshold_type=None, threshold
 		"docstatus": 1,
 		"outstanding_amount": [">", 0],
 	}
+	if tax_type:
+		filters["taxes_and_charges"] = tax_type
 	if threshold_type == "Due Date":
 		filters["posting_date"] = ["<=", threshold_date]
 	if threshold_type == "Invoice Date":
